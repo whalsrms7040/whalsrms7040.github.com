@@ -1,185 +1,96 @@
-# Immaculate
+p h o t o r a m a 
+====================
 
-A beautiful, fast, AMP-compliant Jekyll theme based on Tufte CSS.
+![photorama](https://raw.githubusercontent.com/sunbliss/photorama/gh-pages/photorama_thumb.gif)
 
-[Check it out here!](https://cdn.ampproject.org/c/siawyoung.com/immaculate/)
 
-[Google AMP](https://www.ampproject.org/)
+![Speed Test](https://raw.githubusercontent.com/sunbliss/photorama/gh-pages/Website%20Speed%20Test.png)
 
-[Tufte CSS](https://github.com/edwardtufte/tufte-css)
+----------
 
-Immaculate is really fast, thanks to Google AMP. When served over Google's CDN, you will see typical `DOMContentLoaded` times of well under 100ms (when using the leaner stylesheet, see below). The benefits are most obvious for slower connections. On the *Regular - 2G* throttling setting in Chrome, the demo page still manages a `DOMContentLoaded` of under 500ms.
+---> [DEMO](http://sunbliss.github.io/photorama/ "DEMO")  <---
 
-Immaculate includes tag support for some of the more commonly-used Tufte CSS layout options, including sidenotes, margin notes, and full-width figures. Other features, such as `newthought` or epigraphs, can be used by typing raw HTML in your Markdown files. I might add helper tags for these in the future.
+----------
 
-**Caveat (need hep!)**: AMP HTML does not allow form elements, including checkboxes, which are used in Tufte CSS to toggle the display of sidenotes and margin notes at smaller widths. As such, I've modified Immaculate to disable this functionality at smaller widths for the time being. It's a big deal, and I'm looking for help on emulating this functionality without using checkboxes.
+A theme for **jekyll**. 
 
-## Getting Started
+Created for gh-pages (project page).
 
-```
-git clone git@github.com:siawyoung/immaculate.git
-cd immaculate
-bundle install
-bundle exec jekyll serve --baseurl ''
-```
+This template was crafted having in mind the photobloggers.
 
-Modify the template files and `_config.yml` to your liking, and publish away!
+It uses [Clean Blog](https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll "Clean Blog") as its basis.
 
-## Helper Tags
+----------
 
-Immaculate comes with a few helper tags. The source code for these tags can be found in `_plugins/shortcodes.rb`.
+ **IMPORTANT!!!**
+================
 
-### Image
+###Before you begin: Change the URL and the BASEURL in the _config.yml
 
-```
-{% image <src> <width> <height> <option?> %}
-```
+The **URL** should say `http://yourusername.github.io`
 
-The `image` tag allows you to insert AMP-compliant images into the post.
+The **BASEURL** should say `/repositoryname`
 
-`src` is the `src` attribute of the image tag.
+If there are problems with loading assets like CSS files and images, make sure that both **URL** and **BASEURL** are set correctly!!! 
 
-`width` and `height` of the image must be specified, as per AMP specifications.
+----------
 
-`option` - an optional argument which supports the following options:
+If you want to use your **own domain** go to the root of your project's repository, create a CNAME file and add a line with your domain name, e.g. `www.yourdomain.com`.
 
-- `fw` - makes the image full width
-- `raw` - outputs the raw `amp-img` tag, can be used in conjunction with margin notes
+Go to your domain name registrar and add a CNAME record pointing your domain to GitHub Pages:
+- type: CNAME
+- host: www.yourdomainname.com
+- answer: yourusername.github.io/repositoryname
+- TTL: 300
 
-##### Example usage
+----------
 
-```
-{% image https://image.com/image.jpg 1200 600 fw %}
-```
+Usage
+============ 
 
-### Youtube
+###Quick Start
 
-```
-{% youtube <id> <width> <height> <option?> %}
-```
+1. [Fork this repository](https://github.com/sunbliss/photorama/fork) to get started. 
+2. Go to `https://github.com/yourusername/photorama/settings`
+3. Rename the repository to your new project, e.g. *myphotoblog*
+2. Create a new branch called `gh-pages` in your repository. 
+3. Go to the branches directory at `https://github.com/yourusername/repositoryname/branches` and *change* **default branch** to **gh-pages**.
+4. Delete **master** branch. 
+3. GitHub will build your site automatically and publish it at `http://yourusername.github.io/repositoryname/`.  
 
-The `youtube` tag allows you to insert AMP-compliant embedded Youtube videos into the post.
+----------
 
-`id` is the Youtube viddeo ID.
+- The homepage welcomes the visitors with 3 animated photos of your choice. It is recommended that all three are landscape orientated for best view.
 
-`width` and `height` of the video must be specified, as per AMP specifications.
+To change the welcome content at the far left of the Home page go here: `/index.html`
 
-`option` - an optional argument which supports the following options:
+----------
 
-- `fw` - makes the video full width
-- `raw` - outputs the raw `amp-youtube` tag, can be used in conjunction with margin notes
+- To enable **disqus** comments in the posts, change their front matter for comments to 'true'.
 
-##### Example usage
+You must have a registered account in disqus, where you will also register a forum for your website.
 
-```
-{% youtube aj2h3h1sf 600 400 %}
-```
+Find the line `s.src = '//yourproject.disqus.com/embed.js';  // ` in the disqus_comments.html and REPLACE 'yourproject' with your forum shortname.
 
-### Sidenote
+----------
 
-(See caveat above)
+- In order to send **newsletters** about your posts to your subscribers, you should register an account in [tinyletter](http://www.tinyletter.com " tinyletter").
 
-```
-{% sidenote <id> <body> %}
-```
+Find the line `'https://tinyletter.com/yourproject', ` in the *newsletter.html* and replace 'yourproject' with your registered website.
 
-The `sidenote` tag allows you insert sidenotes into the post.
+You can always ommit the newsletter rendering by deleting the line `{% include newsletter.html %}
+` in the *default.html* layout.
 
-`id` is a unique identifier for the sidenote, and it can be anything - it will not show up visually.
+----------
 
-`body` is the body of the sidenote. It can also accommodate `span`-level HTML elements (`<b>`, `<em>`, `<i>`, no block-level elements).
+If you want to use the matching **NEWSLETTER** template, you must always create a new file  by copying its respective index.html and renaming it to e.g. 2016-March-newsletter.html and then save it inside the folder and the accompanying images inside the 'images folder', so it can be accessed to your viewers through their browser. In this case the root url for the above newsletter will be ***http://yourgithubusername.github.io/yourproject/2016-March-newsletter.html***. Copy this link and replace this part of the code `http://www.yoursite.com/newsletter/year-month-newsletter` with it.
 
-##### Example usage
+----------
 
-```
-This is a very long{% sidenote meh Yes, <i>very</i> long. %} sentence.
-```
+**TAGS** and **CATEGORIES** of the posts 
 
-### Margin Note
+When you add a tag or a category name in the front matter of a post, don't forget to add the responding markdown files in /journal/tag/ folder and in /journal/category folder, so they can always render when browsing the journal or searching in the respective page.
 
-(See caveat above)
+----------
 
-```
-{% marginnote <id> %}
-<body>
-{% endmarginnote %}
-```
-
-The `marginnote` tag block allows you to insert margin notes into the post.
-
-`id` is a unique identifier for the margin note, and it can be anything - it will not show up visually.
-
-`body` is the body of the sidenote. It can also accommodate `span`-level HTML elements (`<b>`, `<em>`, `<i>`, no block-level elements).
-
-You can also use margin notes in conjunction with `image` and `youtube` tags by specifying the `raw` option.
-
-##### Example usage
-
-```
-{% marginnote yt %}
-{% youtube aj2h3h1sf 350 200 raw %}
-This is a <b>extremely</b> succinct example.
-{% endmarginnote %}
-```
-
-### Blockquote
-
-```
-{% blockquote <footer> %}
-<body>
-{% endblockquote %}
-```
-
-Standard Markdown blockquotes are supported by Immaculate. Additionally, the `blockquote` tag block allows you to insert Tufte-styled blockquotes with footers.
-
-##### Example usage
-
-```
-{% blockquote Friedrich Nietzsche, Thus Spoke Zarathustra %}
-
-But say, my brothers, what can the child do that even the lion could not do? Why must the preying lion still become a child? The child is innocence and forgetting, a new beginning, a game, a self-propelled wheel, a first movement, a sacred “Yes.” For the game of creation, my brothers, a sacred “Yes” is needed: the spirit now wills his own will, and he who had been lost to the world now conquers the world.
-
-{% endblockquote %}
-```
-
-## Even faster performance
-
-By default, Immaculate will utilize Tufte CSS's default font stack, which uses `et-book`. The custom font files are about 160kb in total, which is somewhat of a strain. If performance is important, Immaculate also ships with a leaner version of Tufte CSS, which uses just [the Palatino stack instead](http://www.cssfontstack.com/Palatino). It has 99.29% Mac and 86.13% Windows distribution.
-
-You just need to change the following line in `_includes/styles.scss`:
-
-```
-@import 'tufte';
-// change to:
-@import 'lean_tufte';
-```
-
-Just from pure anecdotal experience, using the leaner stylesheet reduces typical `DOMContentLoaded` times from 300ms down to 50ms when served through Google's CDN. Personally, `et-book` just looks a lot better to me, so pick whatever floats your boat.
-
-## Syntax highlighting
-
-Immaculate supports syntax highlighting, but the stylesheet is commented out by default to keep the page lean. Simply uncomment the following line in `_includes/styles.scss`:
-
-```css
-// @import 'syntax-highlighting';
-```
-
-## FAQ
-
-*How can I use the sans-serif versin of Tufte CSS, which uses Gill Sans?*
-
-You can override the CSS style in `_includes/styles.scss` with the font stack of your choice:
-
-```
-body {
-  font-family: "Gill Sans"
-}
-```
-
-## Credits
-
-Credits to [Amplify](https://github.com/ageitgey/amplify) for most of the AMP-related code.
-
-## License
-
-MIT
+I hope you will find it useful for your projects, photographic or not.
