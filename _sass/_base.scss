@@ -23,6 +23,14 @@ body {
     -o-font-feature-settings: "kern" 1;
     font-feature-settings: "kern" 1;
     font-kerning: normal;
+    
+    @include media-query($on-palm) {
+        &.exp {
+            left: 200px;
+            position: relative;
+            overflow-x: hidden;
+        }
+    }
 }
 
 
@@ -148,6 +156,27 @@ pre {
         padding-right: 0;
         padding-left: 0;
     }
+}
+
+/**
+ * Tables
+ */
+table {
+  margin-bottom: 1rem;
+  border: 1px solid #e5e5e5;
+  border-collapse: collapse;
+  td,
+  th {
+    padding: .25rem .5rem;
+    border: 1px solid #e5e5e5;
+  }
+  tbody{
+      tr:nth-child(odd){ 
+        td,th{
+            background-color: #f9f9f9;
+        }
+      }      
+  }
 }
 
 
